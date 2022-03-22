@@ -1,0 +1,5 @@
+{
+  "db": "mongodb+srv://mumtazkhang:zM9BTTjvRehgWmkH@mumtazcluster.afzux.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "jwtPrivateKey":"SomePrivateKey" 
+}
+

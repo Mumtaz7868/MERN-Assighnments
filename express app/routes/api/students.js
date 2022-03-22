@@ -3,7 +3,6 @@ const Students = require("../../models/Students");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const _ = require("lodash");
-const jwt = require("jsonwebtoken");
 const config = require("config");
 
 router.get("/signup", async (req, res) => {
@@ -34,11 +33,6 @@ router.get("/signin", async (req, res) => {
     let isValid = await bcrypt.compare(password, result.password);
     if (!isValid) {
       return res.status(404).send("Invalid Password");
-      let token = jwt.sign(
-        { _id: user._id, name: user.name },
-        config.get("jwtPrivateKey")
-      );
-      return res.send(token);
     }
 
     result = _.pick(result, ["name", "email", "role", "_id"]);
